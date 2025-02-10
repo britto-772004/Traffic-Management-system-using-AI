@@ -3,7 +3,7 @@ import numpy as np
 import os
 
 
-def yoloo():
+def yoloo(img_path):
 # Load YOLO model
     net = cv2.dnn.readNet("/home/kite/Downloads/yolo_files/yolov4.weights",
                         "/home/kite/Downloads/yolo_files/yolov4.cfg")
@@ -20,7 +20,7 @@ def yoloo():
     output_layers = [layer_names[i - 1] for i in out_layer_indices]
 
     # Load image
-    img = cv2.imread('img22.jpg')
+    img = cv2.imread(img_path)
 
     # Resize the image for processing
     resize_scale = 0.5

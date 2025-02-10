@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                                             <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -151,6 +151,9 @@
                     let yellowTime = 5;
                     currentLight.yellow.innerText = yellowTime;
 
+                    // call green-time api
+                    
+
                     const yellowInterval = setInterval(() => {
                         yellowTime--;
                         currentLight.yellow.innerText = yellowTime;
@@ -162,6 +165,22 @@
                             updateTrafficLights(gg); // Use gg for next green time
                         }
                     }, 1000);
+                }
+                else if (greenTime == 5){
+                    console.log("green time api call");
+                    fetch('http://127.0.0.1:5000/green-time', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    // body: JSON.stringify(gg)  // Send gg to server
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // document.getElementById("hi").innerText = data.number;
+                        gg = data.number; // Update gg with new green time
+                    })
+                    .catch(error => console.error("error", error));
                 }
             }, 1000);
 
@@ -177,23 +196,24 @@
             // })
             // .catch(error => console.error("error", error));
 
-                fetch('http://127.0.0.1:5000/green-time', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    // body: JSON.stringify(gg)  // Send gg to server
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // document.getElementById("hi").innerText = data.number;
-                    gg = data.number; // Update gg with new green time
-                })
-                .catch(error => console.error("error", error));
+                // fetch('http://127.0.0.1:5000/green-time', {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json'
+                //     },
+                //     // body: JSON.stringify(gg)  // Send gg to server
+                // })
+                // .then(response => response.json())
+                // .then(data => {
+                //     // document.getElementById("hi").innerText = data.number;
+                //     gg = data.number; // Update gg with new green time
+                // })
+                // .catch(error => console.error("error", error));
             
         }
 
-        updateTrafficLights(3);  // Start simulation with initial green time
+        updateTrafficLights(6);  // Start simulation with initial green time
     </script>
 </body>
+
 </html>

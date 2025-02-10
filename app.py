@@ -2,9 +2,12 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
+i = 0
+path_list = ["traffic_2.png","img22.jpg","traffic-photos/MUMBAI-CROWD.webp","traffic-photos/traffic1.jpg"]
 # Route for the main HTML file
 @app.route("/")
 def main():
+
     return render_template("index.html")
 
 # Simulating the VehicleInfo module and function
@@ -129,9 +132,14 @@ def yolo_object_detection():
     # result = subprocess.run(["python3","try_traffic_simu.py"])
     # instance = ObjectDetect()
     # result = ObjectDetect.yoloo()
-    result = try_traffic_simu.yoloo()
-    print("output from yolo file : ",result)
-    return result
+        global i 
+        print ("value of i",i)
+        result = try_traffic_simu.yoloo(path_list[i])
+        i = i + 1
+        print("output from yolo file : ",result)
+        return result
+        
 
 if __name__ == "__main__":
     app.run(debug=True)
+
