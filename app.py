@@ -41,7 +41,7 @@ def greentime():
     print(f"Received data for green time calculation: {data}")
     result = green_time(data)  # Calculate the green time
     print(f"Calculated green time: {result}")
-    return {"number": result}
+    return jsonify({"vehicle-count":data, "number": result})
 
 # Global dictionary object with crossing time
 dictionary = {
