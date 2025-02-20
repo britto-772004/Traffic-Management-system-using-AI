@@ -41,7 +41,7 @@ def greentime():
     print(f"Received data for green time calculation: {data}")
     result = green_time(data)  # Calculate the green time
     print(f"Calculated green time: {result}")
-    return jsonify({"number": result})
+    return {"number": result}
 
 # Global dictionary object with crossing time
 dictionary = {
@@ -69,6 +69,9 @@ def calculate_time_5(dict):
         final_time_for_bus = dictionary[5]["bus"] * dict["bus"]
         my_list.append(final_time_for_bus)
 
+    else :
+        my_list.append(0)
+
     return max(my_list)
 
 # Similarly for 15 and 20 meters
@@ -89,6 +92,9 @@ def calculate_time_10(dict):
     if "bus" in dict:
         final_time_for_bus = dictionary[10]["bus"] * dict["bus"]
         my_list.append(final_time_for_bus)
+    
+    else :
+        my_list.append(0)
 
     return max(my_list)
 
@@ -132,13 +138,29 @@ def yolo_object_detection():
     # result = subprocess.run(["python3","try_traffic_simu.py"])
     # instance = ObjectDetect()
     # result = ObjectDetect.yoloo()
-        global i 
-        print ("value of i",i)
-        result = try_traffic_simu.yoloo(path_list[i])
-        i = i + 1
-        print("output from yolo file : ",result)
-        return result
+    # try:
+    #     global i 
+    #     print ("value of i",i)
+    #     result = try_traffic_simu.yoloo(path_list[i])
+    #     i = i + 1
+    #     print("output from yolo file : ",result)
+    #     return result
+    # except IndexError:
+    #     i=0
+    #     result = try_traffic_simu.yoloo(path_list[i])
+    #     i = i + 1
+    #     print("output from yolo file : ",result)
+    while True:
+        global i
+        while i <= 3:
+            
+            print ("value of i :",i)
+            result = try_traffic_simu.yoloo(path_list[i])
+            print("output from yolo file : ",result)
+            i = i+1
+            return result
         
+            
 
 if __name__ == "__main__":
     app.run(debug=True)
