@@ -57,25 +57,81 @@ def funtime():
     print("Green time :",ans)
     return ans
 
+# while True:
+#     red_1.on()
+#     print("Red light is on....")
+#     sleep(5)
+#     red_1.off()
+#     print("Red light is off....")
+#     yellow_1.on()
+#     print("yellow light is on....")
+#     ans=funtime()
+#     # sleep(3)
+#     sleep(1)
+#     yellow_1.off()
+#     print("yellow light is off....")
+#     # ans=time()
+#     green_1.on()
+#     print("Green light is on....")
+#     sleep(ans-25)
+#     green_1.off()
+#     print("Green light is off....")
+
 while True:
+    
     red_1.on()
-    print("Red light is on....")
-    sleep(5)
-    red_1.off()
-    print("Red light is off....")
-    yellow_1.on()
-    print("yellow light is on....")
-    ans=funtime()
-    # sleep(3)
+    red_2.on()
+    red_3.on()
+    yellow_4.on()
+    ans = funtime()
     sleep(1)
-    yellow_1.off()
-    print("yellow light is off....")
-    # ans=time()
     green_1.on()
-    print("Green light is on....")
-    sleep(ans-25)
+    print("Green - 1 is on..")
+    sleep(ans)
     green_1.off()
-    print("Green light is off....")
+    print("Green - 1 is off...")
+    yellow_1.on()
+    print("Yellow - 1 is on..")
+    ans=funtime() # 4 seconds execution time 
+    sleep(1)
+    red_1.on()
+    red_2.off()
+    green_2.on()
+    print("Green - 2 is on.....")
+    sleep(ans)
+
+    green_2.off()
+    print("Green - 2 is off...")
+    yellow_2.on()
+    print("Yellow - 2 is on..")
+    ans=funtime() # 4 seconds execution time 
+    sleep(1)
+    red_2.on()
+    red_3.off()
+    green_3.on()
+    print("Green - 3 is on.....")
+    sleep(ans)
+
+    green_3.off()
+    print("Green - 3 is off...")
+    yellow_3.on()
+    print("Yellow - 3 is on..")
+    ans=funtime() # 4 seconds execution time 
+    sleep(1)
+    red_3.on()
+    red_4.off()
+    green_4.on()
+    print("Green - 4 is on.....")
+    sleep(ans)
+    green_4.off()
+    print("Green - 4 is off...")
+
+
+
+
+
+
+
 
 """
 to find excution time
@@ -84,3 +140,4 @@ ans=funtime()
 endtime=time.time()
 print("ex time",endtime-startTime)
 """
+
