@@ -3,9 +3,21 @@ from gpiozero import LED
 import app
 import time
 # Define LEDs
-red = LED(4)
-yellow = LED(6)
-green = LED(2)
+red_1 = LED(2)
+yellow_1 = LED(3)
+green_1 = LED(4)
+
+red_2 = LED(17)
+yellow_2 = LED(27)
+green_2 = LED(22)
+
+red_3 = LED(10)
+yellow_3 = LED(9)
+green_3 = LED(8)
+
+red_4 = LED(5)
+yellow_4 = LED(6)
+green_4 = LED(13)
 
 # def light():
 #     try:
@@ -40,28 +52,29 @@ green = LED(2)
 def funtime():
     result = app.greentime()
     print("return value from the greentime function : ", result)
+    result=result.get_json()
     ans = result["number"]
     print("Green time :",ans)
     return ans
 
 while True:
-    red.on()
+    red_1.on()
     print("Red light is on....")
     sleep(5)
-    red.off()
+    red_1.off()
     print("Red light is off....")
-    yellow.on()
+    yellow_1.on()
     print("yellow light is on....")
     ans=funtime()
     # sleep(3)
     sleep(1)
-    yellow.off()
+    yellow_1.off()
     print("yellow light is off....")
     # ans=time()
-    green.on()
+    green_1.on()
     print("Green light is on....")
     sleep(ans-25)
-    green.off()
+    green_1.off()
     print("Green light is off....")
 
 """

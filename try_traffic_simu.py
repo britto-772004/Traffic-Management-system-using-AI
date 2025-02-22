@@ -5,8 +5,8 @@ import os
 
 def yoloo(img_path):
 # Load YOLO model
-    net = cv2.dnn.readNet("/home/kite/Downloads/yolo_files/yolov4.weights",
-                        "/home/kite/Downloads/yolo_files/yolov4.cfg")
+    net = cv2.dnn.readNet("/home/britto/Projects/Traffic-Management-system-using-AI/yolov4.weights", # change the path
+                        "/home/britto/Projects/Traffic-Management-system-using-AI/yolov4(1).cfg") # change the path 
 
 
     # Load classes
