@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 i = 0
-path_list = ["traffic_2.png","img22.jpg","traffic-photos/MUMBAI-CROWD.webp","traffic-photos/traffic1.jpg"]
+path_list = ["traffic-photos/traffic_2.png","traffic-photos/img22.jpg","traffic-photos/MUMBAI-CROWD.webp","traffic-photos/traffic1.jpg"]
 # Route for the main HTML file
 @app.route("/")
 def main():
@@ -42,7 +42,7 @@ def greentime():
     result = green_time(data)  # Calculate the green time
     print(f"Calculated green time: {result}")
     # return jsonify({"vehicle-count":data,"number": result})
-    return {"number": result}
+    return {"number": result,"vehicle-count":data}
 
 # Global dictionary object with crossing time
 dictionary = {
