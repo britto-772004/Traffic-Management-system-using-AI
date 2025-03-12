@@ -41,6 +41,7 @@ def greentime():
     print(f"Received data for green time calculation: {data}")
     result = green_time(data)  # Calculate the green time
     print(f"Calculated green time: {result}")
+    # return jsonify({"vehicle-count":data,"number": result})
     return {"number": result}
 
 # Global dictionary object with crossing time
@@ -152,6 +153,9 @@ def yolo_object_detection():
     #     print("output from yolo file : ",result)
     while True:
         global i
+        if(i >3):
+            i=0
+        
         while i <= 3:
             
             print ("value of i :",i)
