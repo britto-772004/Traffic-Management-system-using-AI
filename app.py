@@ -3,8 +3,9 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 i = 0
-path_list = ["traffic_2.png","img22.jpg","traffic-photos/MUMBAI-CROWD.webp","traffic-photos/traffic1.jpg"]
-# Route for the main HTML file
+path_list = ["traffic-photos/traffic_2.png","traffic-photos/img22.jpg","traffic-photos/MUMBAI-CROWD.webp","traffic-photos/traffic1.jpg"]
+# path_list = ["traffic-photos/image.png","traffic-photos/img22.jpg","traffic-photos/MUMBAI-CROWD.webp","traffic-photos/traffic1.jpg"]
+
 @app.route("/")
 def main():
 
@@ -41,7 +42,7 @@ def greentime():
     print(f"Received data for green time calculation: {data}")
     result = green_time(data)  # Calculate the green time
     print(f"Calculated green time: {result}")
-    return jsonify({"vehicle-count":data, "number": result})
+    return jsonify({"vehicle-count": data, "number": result})
 
 # Global dictionary object with crossing time
 dictionary = {
@@ -135,21 +136,6 @@ def green_time(dict):
 # from try_traffic_simu import ObjectDetect
 import try_traffic_simu
 def yolo_object_detection():
-    # result = subprocess.run(["python3","try_traffic_simu.py"])
-    # instance = ObjectDetect()
-    # result = ObjectDetect.yoloo()
-    # try:
-    #     global i 
-    #     print ("value of i",i)
-    #     result = try_traffic_simu.yoloo(path_list[i])
-    #     i = i + 1
-    #     print("output from yolo file : ",result)
-    #     return result
-    # except IndexError:
-    #     i=0
-    #     result = try_traffic_simu.yoloo(path_list[i])
-    #     i = i + 1
-    #     print("output from yolo file : ",result)
     while True:
         global i
         while i <= 3:

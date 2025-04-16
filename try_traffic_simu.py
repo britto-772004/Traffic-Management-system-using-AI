@@ -4,9 +4,8 @@ import os
 
 
 def yoloo(img_path):
-# Load YOLO model
-    net = cv2.dnn.readNet("/home/kite/Downloads/yolo_files/yolov4.weights",
-                        "/home/kite/Downloads/yolo_files/yolov4.cfg")
+    net = cv2.dnn.readNet(r"C:\Users\ACER\Desktop\pyscript\object_classification_proj\yolov4.weights",
+                        r"C:\Users\ACER\Desktop\pyscript\object_classification_proj\yolov4 (1).cfg")
 
 
     # Load classes
@@ -108,12 +107,10 @@ def yoloo(img_path):
     # Print detected vehicle info
     print(vehicle_info_2)
 
-    # Ensure "newfolder" exists, if not, create it
-    output_folder = "VehicleCount"
+    output_folder = "static/images"
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-    # Save the processed image in "newfolder"
     output_path = os.path.join(output_folder, "detected_vehicles.png")
     cv2.imwrite(output_path, masked_img)
 
