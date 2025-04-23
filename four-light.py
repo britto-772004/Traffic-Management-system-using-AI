@@ -2,6 +2,8 @@ from time import sleep
 from gpiozero import LED
 import app
 import time
+from RPLCD.i2c import CharLCD
+
 # Define LEDs
 red_1 = LED(2)
 yellow_1 = LED(3)
@@ -27,6 +29,21 @@ def funtime():
     ans = result["number"]
     print("Green time :",ans)
     return ans
+
+lcd = CharLCD('PCF8574', 0x27, cols=16, rows=2)
+
+# Function to display green time for a given junction
+def display_green_time(junction_no, greenlight):
+    lcd.clear()
+    lcd.cursor_pos = (0, 0)
+    lcd.write_string(f"Junc {junction_no} Green")
+
+    for seconds in range(greenlight, -1, -1):
+        lcd.cursor_pos = (1, 0)
+        lcd.write_string(" " * 16)  # Clear line
+        lcd.cursor_pos = (1, 0)
+        lcd.write_string(f"{seconds} sec")
+        sleep(1)
 
 
 while True:
